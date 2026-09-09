@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MANGANAI - AI-Powered Satellite Intelligence for Manganese Prospectivity Mapping" />
+  <title>MANGANAI | Satellite Intelligence for Manganese Prospectivity</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-item active" data-section="section-area">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-item" data-section="section-area">
+          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Test Cases
+        </a>
+        <a href="#" class="sidebar-item" data-section="section-map">
+          <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          Map Analysis
+        </a>
+        <a href="#" class="sidebar-item" data-section="section-insights">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg>
+          Insights
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ==================== MAIN AREA ==================== -->
+    <div class="main-area">
+
+      <!-- ========== HEADER ========== -->
+      <header class="header">
+        <div class="header-left">
+          <div class="header-logo">
+            <!-- IMAGE: Replace with images/logo.png -->
+            <svg class="header-logo-icon" viewBox="0 0 48 48" fill="none">
+              <defs>
+                <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48">
+                  <stop offset="0%" stop-color="#38bdf8"/>
+                  <stop offset="100%" stop-color="#10b981"/>
+                </linearGradient>
+              </defs>
+              <path d="M24 4L6 14v20l18 10 18-10V14L24 4z" stroke="url(#logoGrad)" stroke-width="2" fill="rgba(56,189,248,0.1)"/>
+              <path d="M24 4v40M6 14l18 10 18-10M6 34l18-10 18 10" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.6"/>
+              <circle cx="24" cy="24" r="6" stroke="url(#logoGrad)" stroke-width="1.5" fill="rgba(16,185,129,0.15)"/>
+            </svg>
+          </div>
+          <div class="header-brand">
+            <div class="header-title">MANGAN<span>AI</span></div>
+            <div class="header-subtitle">Satellite Intelligence for Manganese Prospectivity</div>
+          </div>
+        </div>
+        <div class="header-center">
+          <div class="header-tagline">From Space to Sustainable Resources</div>
+          <div class="header-tags">
+            <span class="header-tag">AI</span>
+            <span class="header-tag-sep">|</span>
+            <span class="header-tag">Earth Observation</span>
+            <span class="header-tag-sep">|</span>
+            <span class="header-tag">Smarter Exploration</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-mission">Earth<br/>Data for a<br/>Better Tomorrow</div>
+          <div class="header-accent-line"></div>
+        </div>
+      </header>
+
+      <!-- ========== CONTENT ========== -->
+      <main class="content">
+
+        <!-- ===== 1. SELECT AN AREA ===== -->
+        <section class="area-section" id="section-area">
+          <div>
+            <h2 class="section-title">Select an Area to Explore</h2>
+            <p class="section-subtitle">Choose a test location to view AI-powered analysis</p>
+          </div>
+          <div class="area-cards" id="area-cards">
+            <!-- Cards rendered by app.js -->
+          </div>
+        </section>
+
+        <!-- ===== 2. MAP + ANALYSIS ===== -->
+        <section class="map-analysis-section" id="section-map">
+          <!-- Map Panel -->
+          <div class="map-panel">
+            <div class="map-image-container">
+              <!-- IMAGE: Main map/satellite image -->
+              <img id="map-main-image" src="images/map-dulhapur.jpg" alt="Satellite map" style="display:none;" />
+              <div class="map-placeholder" id="map-placeholder"></div>
+            </div>
+
+            <!-- Location Badge -->
+            <div class="map-overlay-top">
+              <div class="map-location-badge">
+                <div class="map-location-icon"></div>
+                <div>
+                  <div class="map-location-name" id="map-loc-name">Dulhapur, Madhya Pradesh</div>
+                  <div class="map-location-coords" id="map-loc-coords">22.69° N, 80.22° E</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prospectivity Legend -->
+            <div class="map-overlay-legend">
+              <div class="map-legend-title">Prospectivity Level</div>
+              <div class="map-legend-items">
+                <div class="map-legend-item" data-level="high">
+                  <div class="legend-dot high"></div>
+                  <span>High</span>
+                </div>
+                <div class="map-legend-item" data-level="medium">
+                  <div class="legend-dot medium"></div>
+                  <span>Medium</span>
+                </div>
+                <div class="map-legend-item" data-level="low">
+                  <div class="legend-dot low"></div>
+                  <span>Low</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zoom Controls -->
+            <div class="map-controls-left">
+              <button class="map-ctrl-btn" title="Zoom In">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <button class="map-ctrl-btn" title="Zoom Out">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <button class="map-ctrl-btn" title="Layers">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </button>
+            </div>
+
+            <!-- AOI Marker -->
+            <div class="map-aoi-marker">
+              <div class="map-aoi-pin">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="#0a0e1a"/></svg>
+              </div>
+              <div class="map-aoi-label" id="map-aoi-label">AOI-01</div>
+            </div>
+
+            <!-- Scale Bar -->
+            <div class="map-scale">
+              <div>
+                <div class="map-scale-bar">
+                  <div class="map-scale-segment"></div>
+                  <div class="map-scale-segment"></div>
+                  <div class="map-scale-segment"></div>
+                </div>
+                <div class="map-scale-labels">
+                  <span class="map-scale-label">0</span>
+                  <span class="map-scale-label">2</span>
+                  <span class="map-scale-label">4 km</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layer Controls -->
+            <div class="map-layer-controls">
+              <button class="layer-btn active" data-layer="Satellite">Satellite</button>
+              <button class="layer-btn" data-layer="NDVI">NDVI</button>
+              <button class="layer-btn" data-layer="Terrain">Terrain</button>
+              <button class="layer-btn" data-layer="False Color">False Color</button>
+            </div>
+          </div>
+
+          <!-- Analysis Panel -->
+          <div class="analysis-panel">
+            <h3 class="analysis-title">AI Analysis Result</h3>
+
+            <div class="analysis-score-area">
+              <div class="score-ring">
+                <svg viewBox="0 0 100 100">
+                  <circle class="score-ring-bg" cx="50" cy="50" r="45" />
+                  <circle class="score-ring-fill" id="score-ring-fill" cx="50" cy="50" r="45" />
+                </svg>
+                <div class="score-ring-text">
+                  <div class="score-value" id="score-value">84<span> / 100</span></div>
+                  <div class="score-label high" id="score-label">High Priority</div>
+                </div>
+              </div>
+              <div class="analysis-info">
+                <div class="analysis-info-title">Manganese Prospectivity</div>
+                <div class="priority-badge high" id="priority-badge">HIGH PRIORITY</div>
+                <p class="analysis-desc" id="analysis-desc">The area shows strong similarity with geological and environmental characteristics associated with manganese-bearing regions.</p>
+              </div>
+            </div>
+
+            <div class="exploration-note">
+              <div class="exploration-note-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="exploration-note-text" id="exploration-note-text">Potential zone identified for further exploration.</div>
+            </div>
+
+            <div class="validation-panel">
+              <div class="validation-title">Validation <span>(Independent Reference)</span></div>
+              <div class="validation-content">
+                <div class="validation-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <div class="validation-text" id="validation-text">Manganese occurrence previously reported in this region through geological investigation.</div>
+              </div>
+              <div class="validation-note" id="validation-note">Note: Geological reference data was NOT used during prediction.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 3. INDICATORS ===== -->
+        <section class="indicators-section" id="section-indicators">
+          <div>
+            <h2 class="section-title">Satellite-Derived Indicators</h2>
+            <p class="section-subtitle">Key environmental and spectral parameters used by the model</p>
+          </div>
+          <div class="indicators-grid">
+            <!-- NDVI -->
+            <div class="indicator-card">
+              <div class="indicator-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="#10b981" stroke-width="1.5">
+                  <path d="M16 28V14"/>
+                  <path d="M8 20c0-6 4-10 8-12 4 2 8 6 8 12"/>
+                  <path d="M10 22c0-4 3-7 6-9 3 2 6 5 6 9"/>
+                </svg>
+              </div>
+              <div class="indicator-label">Vegetation Index<br/><span class="indicator-sublabel">(NDVI)</span></div>
+              <div class="indicator-value" id="ind-val-ndvi">0.42</div>
+              <div class="indicator-bar"><div class="indicator-bar-fill" id="ind-bar-ndvi" style="width: 42%"></div></div>
+            </div>
+            <!-- NDMI -->
+            <div class="indicator-card">
+              <div class="indicator-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                  <path d="M16 4L8 18a8 8 0 1016 0L16 4z"/>
+                </svg>
+              </div>
+              <div class="indicator-label">Moisture Index<br/><span class="indicator-sublabel">(NDMI)</span></div>
+              <div class="indicator-value" id="ind-val-ndmi">0.31</div>
+              <div class="indicator-bar"><div class="indicator-bar-fill" id="ind-bar-ndmi" style="width: 31%"></div></div>
+            </div>
+            <!-- LST -->
+            <div class="indicator-card">
+              <div class="indicator-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="#ef4444" stroke-width="1.5">
+                  <path d="M16 4v18M12 22a4 4 0 108 0c0-1.5-1-2.5-2-3.5V10a2 2 0 00-4 0v8.5c-1 1-2 2-2 3.5z"/>
+                </svg>
+              </div>
+              <div class="indicator-label">Land Surface Temp<br/><span class="indicator-sublabel">(LST)</span></div>
+              <div class="indicator-value" id="ind-val-lst">29.4 °C</div>
+              <div class="indicator-bar"><div class="indicator-bar-fill" id="ind-bar-lst" style="width: 58.8%"></div></div>
+            </div>
+            <!-- Elevation -->
+            <div class="indicator-card">
+              <div class="indicator-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="#f59e0b" stroke-width="1.5">
+                  <path d="M4 26l8-16 5 8 3-5 8 13H4z"/>
+                </svg>
+              </div>
+              <div class="indicator-label">Elevation</div>
+              <div class="indicator-value" id="ind-val-elevation">642 m</div>
+              <div class="indicator-bar"><div class="indicator-bar-fill" id="ind-bar-elevation" style="width: 64.2%"></div></div>
+            </div>
+            <!-- Spectral Similarity -->
+            <div class="indicator-card">
+              <div class="indicator-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="#a78bfa" stroke-width="1.5">
+                  <polyline points="4 24 8 16 12 20 16 8 20 18 24 12 28 22"/>
+                </svg>
+              </div>
+              <div class="indicator-label">Spectral Similarity</div>
+              <div class="indicator-value" id="ind-val-spectral">86 %</div>
+              <div class="indicator-bar"><div class="indicator-bar-fill" id="ind-bar-spectral" style="width: 86%"></div></div>
+            </div>
+            <!-- Terrain Ruggedness -->
+            <div class="indicator-card">
+              <div class="indicator-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="#f59e0b" stroke-width="1.5">
+                  <path d="M4 26l6-10 4 6 4-14 4 10 6-8v16H4z"/>
+                  <path d="M14 8l2-4 2 4" stroke-width="1"/>
+                </svg>
+              </div>
+              <div class="indicator-label">Terrain Ruggedness</div>
+              <div class="indicator-value" id="ind-val-terrain">Moderate</div>
+              <div class="indicator-bar"><div class="indicator-bar-fill" id="ind-bar-terrain" style="width: 60%"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 4. AREA INFO + INSIGHTS ===== -->
+        <section class="info-insights-section" id="section-insights">
+          <!-- Area Information -->
+          <div class="info-card">
+            <h3 class="info-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              Area Information
+            </h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="info-item-label">Location</div>
+                  <div class="info-item-value" id="info-location">Dulhapur, Madhya Pradesh</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <div>
+                  <div class="info-item-label">Dominant Land Cover</div>
+                  <div class="info-item-value" id="info-landcover">Mixed Vegetation</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                </div>
+                <div>
+                  <div class="info-item-label">Approx. Area (AOI)</div>
+                  <div class="info-item-value" id="info-aoi">~ 25 sq. km</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 26l6-10 4 6 4-14 4 10 6-8" stroke-width="1.5"/></svg>
+                </div>
+                <div>
+                  <div class="info-item-label">Geological Setting</div>
+                  <div class="info-item-value" id="info-geological">Gondite / Phyllite</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Insights -->
+          <div class="info-card">
+            <h3 class="info-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><path d="M9 21h6"/></svg>
+              Key Insights
+            </h3>
+            <div class="insights-list" id="insights-list">
+              <!-- Rendered by app.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- UI END -->
+
+      </main>
+
+      <!-- ========== FOOTER BAR ========== -->
+      <footer class="footer">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <svg viewBox="0 0 48 48" fill="none" width="32" height="32">
+              <path d="M24 4L6 14v20l18 10 18-10V14L24 4z" stroke="url(#logoGrad)" stroke-width="2" fill="rgba(56,189,248,0.1)"/>
+              <path d="M24 4v40M6 14l18 10 18-10M6 34l18-10 18 10" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.6"/>
+              <circle cx="24" cy="24" r="6" stroke="url(#logoGrad)" stroke-width="1.5" fill="rgba(16,185,129,0.15)"/>
+            </svg>
+          </div>
+          <div class="footer-brand">
+            <div class="footer-brand-name">MANGAN<span>AI</span></div>
+            <div class="footer-brand-sub">Satellite Intelligence for Manganese Prospectivity</div>
+          </div>
+        </div>
+        <div class="footer-right">
+          <span>Powered by Earth Observation</span>
+          <span>|</span>
+          <span>For a Sustainable Future</span>
+          <div class="footer-right-accent"></div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

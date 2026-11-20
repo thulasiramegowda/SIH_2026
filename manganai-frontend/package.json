@@ -1,0 +1,22 @@
+{
+  "name": "manganai-app",
+  "version": "1.0.0",
+  "description": "MANGANAI - Satellite Intelligence for Manganese Prospectivity",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "tailwindcss": "^3.3.5",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  }
+}
